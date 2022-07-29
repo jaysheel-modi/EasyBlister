@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class HomePageController implements Initializable{
@@ -44,11 +45,6 @@ public class HomePageController implements Initializable{
     @FXML
     private Label signOut;
 
-    @FXML
-    void addNewBlister(ActionEvent event) {
-
-    }
-
     private Stage  stage;
     private Scene scene;
     private Parent root;
@@ -61,6 +57,25 @@ public class HomePageController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    void addNewBlister(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("AddBlister.fxml"));
+        stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void userSignOut(MouseEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("signin.fxml"));
+        stage = (Stage)((Node) (event.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

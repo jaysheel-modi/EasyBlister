@@ -1,3 +1,5 @@
+package P1;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class RegisterController {
+public class RegisterController implements Initializable{
 
     @FXML
     private Button Registerbtn;
@@ -52,7 +54,7 @@ public class RegisterController {
 
     @FXML
     void signinClicked(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Signin.fxml"));
+        root = FXMLLoader.load(getClass().getResource("signin.fxml"));
         stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -62,10 +64,16 @@ public class RegisterController {
 
     @FXML
     void registerClick(MouseEvent event) throws IOException {
-        // root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-        // stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
-        // scene = new Scene(root);
-        // stage.setScene(scene);
-        // stage.show();
+        root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // TODO Auto-generated method stub
+        
     }
 }

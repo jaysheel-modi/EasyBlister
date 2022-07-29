@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomePageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="P1.HomePageController">
    <top>
       <Label text="EASY BLISTER" BorderPane.alignment="CENTER">
          <font>
@@ -92,7 +92,7 @@
                   <Insets left="120.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="signOut" text="Sign out" textFill="#f40606">
+            <Label fx:id="signOut" onMouseClicked="#userSignOut" text="Sign out" textFill="#f40606">
                <font>
                   <Font name="CMU Serif Bold" size="20.0" />
                </font>
