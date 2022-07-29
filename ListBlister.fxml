@@ -6,8 +6,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ListBlisterController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+   xmlns="http://javafx.com/javafx/18"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="ListBlisterController">
    <padding>
       <Insets top="50.0" />
    </padding>
@@ -62,7 +63,8 @@
       </VBox>
    </top>
    <bottom>
-      <Label fx:id="homeButton" onDragDetected="#goHomePage" text="Home Page" BorderPane.alignment="CENTER">
+
+      <Label fx:id="homeButton" onMouseClicked="#goHomePage" text="Home Page" BorderPane.alignment="CENTER">
          <font>
             <Font size="15.0" />
          </font>
