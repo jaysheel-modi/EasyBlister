@@ -18,14 +18,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // open HomePage
-        Parent root = FXMLLoader.load(getClass().getResource("AddBlister.fxml"));
-        // open ListBlister
-        // Parent root = FXMLLoader.load(getClass().getResource("ListBlister.fxml"));
+        // open Splash Screen
+        Parent root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setTitle("Easy Blister");
-        // primaryStage.setFullScreen(true);
-        // primaryStage.setResizable(false);
+        primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
 
