@@ -52,6 +52,8 @@ public class RegisterController implements Initializable {
     private Scene scene;
     private Parent root;
 
+    Boolean flag = false;
+
     // @FXML
     // void registerClick(MouseEvent event) {
 
@@ -69,19 +71,37 @@ public class RegisterController implements Initializable {
 
     @FXML
     void registerClick(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-        stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
 
-        File fw = new File("register.dat");
+        if (emailId.getText().trim().length() == 0 || lastName.getText().trim().length() == 0
+                || firstName.getText().trim().length() == 0 || phoneNo.getText().trim().length() == 0
+                || password.getText().trim().length() == 0 || confirm.getText().trim().length() == 0) {
+            System.out.println("Not valid");
+            flag = false;
+        } else if (!password.getText().equals(confirm.getText())) {
+            System.out.println("password does not match");
+            flag = false;
+        } else {
+            flag = true;
+        }
 
-        PrintWriter fileOut;
-        fileOut = new PrintWriter(new BufferedWriter(new FileWriter(fw, true)));
-        fileOut.println(emailId.getText() + ", " + lastName.getText() + ", " + firstName.getText() + ", "
-                + phoneNo.getText() + ", " + password.getText() + ", " + confirm.getText());
-        fileOut.close();
+        if (flag) {
+            File fw = new File("register.dat");
+
+            PrintWriter fileOut;
+            fileOut = new PrintWriter(new BufferedWriter(new FileWriter(fw, true)));
+            fileOut.println(emailId.getText() + ", " + lastName.getText() + ", " +
+            firstName.getText() + ", "
+            + phoneNo.getText() + ", " + password.getText() + ", " + confirm.getText());
+            fileOut.close();
+
+            root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+            stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+            
+        }
     }
 
     @Override

@@ -54,32 +54,37 @@ public class SigninController implements Initializable {
 
         if (data.exists()) {
             Scanner scan = new Scanner(data);
-            while (scan.hasNextLine()) {
-                String userData = scan.nextLine();
-                String userField[] = userData.split(", ");
+            if (scan.hasNextLine()) {
+                while (scan.hasNextLine()) {
+                    String userData = scan.nextLine();
+                    String userField[] = userData.split(", ");
 
-                // database data
-                String emailId = userField[0];
-                String password = userField[4];
+                    // database data
+                    String emailId = userField[0];
+                    String password = userField[4];
 
-                // user entered data
-                String userEmail = emailAddress.getText();
-                String userPassword = Password.getText();
+                    // user entered data
+                    String userEmail = emailAddress.getText();
+                    String userPassword = Password.getText();
 
-                // sign in logic
-                if (userEmail.equals(emailId)) {
-                    if (userPassword.equals(password)) {
-                        flag = true;
-                        break;
+                    // sign in logic
+                    if (userEmail.equals(emailId)) {
+                        if (userPassword.equals(password)) {
+                            flag = true;
+                            break;
+                        } else {
+                            flag = false;
+                            System.out.println("line 82: Password does not match");
+                        }
                     } else {
-                        flag = false;
-                        System.out.println("line 82: Password does not match");
+                        if (!scan.hasNextLine()) {
+                            System.out.println("line 84: User does not exist please Register first");
+                            flag = false;
+                        }
                     }
-                } else {
-                    System.out.println("line 84: User does not exist please Register first");
-                    flag = false;
                 }
-
+            } else {
+                System.out.println("NO data");
             }
             if (flag) {
                 root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
