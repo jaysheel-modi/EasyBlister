@@ -49,7 +49,7 @@
             </Label>
             <TextField fx:id="firstName" layoutX="137.0" layoutY="93.0" prefHeight="26.0" prefWidth="156.0" />
             <TextField fx:id="emailId" layoutX="137.0" layoutY="132.0" prefHeight="26.0" prefWidth="155.0" />
-            <Button fx:id="Registerbtn" alignment="CENTER" layoutX="202.0" layoutY="218.0" mnemonicParsing="false" onMouseClicked="#registerClick" prefHeight="25.0" prefWidth="181.0" text="REGISTER" textFill="#111111">
+            <Button fx:id="Registerbtn" alignment="CENTER" layoutX="202.0" layoutY="218.0" mnemonicParsing="false" onMouseClicked="#registerClick" prefHeight="25.0" prefWidth="181.0" text="REGISTER" textFill="#111111"  defaultButton="true">
                <font>
                   <Font name="Bookman Old Style" size="14.0" />
                </font>
