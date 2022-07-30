@@ -1,8 +1,13 @@
 package P1;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class RegisterController implements Initializable{
+public class RegisterController implements Initializable {
 
     @FXML
     private Button Registerbtn;
@@ -69,11 +74,19 @@ public class RegisterController implements Initializable{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+        File fw = new File("register.dat");
+
+        PrintWriter fileOut;
+        fileOut = new PrintWriter(new BufferedWriter(new FileWriter(fw, true)));
+        fileOut.println(emailId.getText() + ", " + lastName.getText() + ", " + firstName.getText() + ", "
+                + phoneNo.getText() + ", " + password.getText() + ", " + confirm.getText());
+        fileOut.close();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // TODO Auto-generated method stub
-        
+
     }
 }
