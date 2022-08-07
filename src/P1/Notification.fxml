@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+   xmlns="http://javafx.com/javafx/18"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="P1.notificationController">
+   <top>
+      <Label text="EASY BLISTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Constantia Bold" size="50.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="50.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <RadioButton layoutX="344.0" layoutY="92.0" mnemonicParsing="false" text="Off"/>
+            <RadioButton fx:id="onButton" layoutX="205.0" layoutY="92.0" mnemonicParsing="false" text="On" />
+            <Label layoutX="252.0" layoutY="32.0" text="Notification">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="homepage" layoutX="268.0" layoutY="251.0" onMouseClicked="#homepageClicked" text="Home page">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="P1.SigninController">
+   <top>
+      <Label alignment="TOP_CENTER" depthTest="ENABLE" mouseTransparent="true" text="Easy Blister" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Constantia Bold" size="50.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets top="50.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="223.0" layoutX="15.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="571.0" />
+            <Label layoutX="187.0" layoutY="-3.0" prefHeight="37.0" prefWidth="211.0" text="Don't forget your medicine" textAlignment="CENTER">
+               <font>
+                  <Font name="Gabriola" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="252.0" layoutY="54.0" prefHeight="24.0" prefWidth="81.0" text="SIGN IN">
+               <font>
+                  <Font name="Bookman Old Style" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="51.0" layoutY="115.0" text="Email Address">
+               <font>
+                  <Font name="Bookman Old Style" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="51.0" layoutY="154.0" text="Password">
+               <font>
+                  <Font name="Bookman Old Style" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="emailAddress" layoutX="187.0" layoutY="111.0" prefHeight="26.0" prefWidth="387.0" />
+            <TextField fx:id="Password" layoutX="187.0" layoutY="149.0" prefHeight="26.0" prefWidth="387.0" />
+            <Button fx:id="signinbtn" alignment="CENTER" layoutX="206.0" layoutY="195.0" mnemonicParsing="false" onMouseClicked="#signinClicked" prefHeight="25.0" prefWidth="181.0" text="SIGN IN" textFill="#111111" defaultButton="true">
+               <font>
+                  <Font name="Bookman Old Style" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="gotoRegister" layoutX="163.0" layoutY="236.0" onMouseClicked="#registerClicked" prefHeight="17.0" prefWidth="259.0" text="Doesn't have an account? REGISTER">
+               <font>
+                  <Font name="Bookman Old Style" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

@@ -21,19 +21,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class ListBlisterController implements Initializable {
+public class HistoryController implements Initializable {
+
+    @FXML
+    private ListView<String> historyListview;
 
     @FXML
     private Label homeButton;
-
-    @FXML
-    private Label addBlister;
-
-    @FXML
-    private ListView<String> dateList;
-
-    @FXML
-    private ListView<String> nameListView;
 
     private Stage stage;
     private Scene scene;
@@ -48,41 +42,33 @@ public class ListBlisterController implements Initializable {
         stage.show();
     }
 
-    @FXML
-    void goAddBlister(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("AddBlister.fxml"));
-        stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // TODO Auto-generated method stub
         File data = new File("blister.dat");
-        ArrayList<String> name = new ArrayList<String>();
-        ArrayList<String> date = new ArrayList<String>();
+        ArrayList<String> history = new ArrayList<String>();
         if (data.exists()) {
             try (Scanner scan = new Scanner(data)) {
                 if (scan.hasNextLine()) {
                     while (scan.hasNextLine()) {
                         String blisterData = scan.nextLine();
+                        // history.add(blisterData);
                         String blisterField[] = blisterData.split(", ");
-                        name.add(blisterField[0]);
-                        date.add(blisterField[1]);
+                        if (blisterField[0].equals("Jaysheel")) {
+                            history.add(blisterData);
+                        }
+                        // for (i = 0; i < blisterField.length; i++) {
+                        // history.add(blisterField[i]);
+                        // }
                     }
                 } else {
-                    name.add("Please add data first");
-                    date.add("Please add data first");
+                    history.add("Please add data first");
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            ObservableList<String> obsName = FXCollections.observableArrayList(name);
-            ObservableList<String> obsDate = FXCollections.observableArrayList(date);
-            nameListView.setItems(obsName);
-            dateList.setItems(obsDate);
+            ObservableList<String> obsHistory = FXCollections.observableArrayList(history);
+            historyListview.setItems(obsHistory);
         }
     }
-
 }

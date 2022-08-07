@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -75,10 +76,16 @@ public class RegisterController implements Initializable {
         if (emailId.getText().trim().length() == 0 || lastName.getText().trim().length() == 0
                 || firstName.getText().trim().length() == 0 || phoneNo.getText().trim().length() == 0
                 || password.getText().trim().length() == 0 || confirm.getText().trim().length() == 0) {
-            System.out.println("Not valid");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please fill all the fields");
+            alert.showAndWait();
             flag = false;
         } else if (!password.getText().equals(confirm.getText())) {
-            System.out.println("password does not match");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Password does not match with confirm password");
+            alert.showAndWait();
             flag = false;
         } else {
             flag = true;
@@ -90,8 +97,8 @@ public class RegisterController implements Initializable {
             PrintWriter fileOut;
             fileOut = new PrintWriter(new BufferedWriter(new FileWriter(fw, true)));
             fileOut.println(emailId.getText() + ", " + lastName.getText() + ", " +
-            firstName.getText() + ", "
-            + phoneNo.getText() + ", " + password.getText() + ", " + confirm.getText());
+                    firstName.getText() + ", "
+                    + phoneNo.getText() + ", " + password.getText() + ", " + confirm.getText());
             fileOut.close();
 
             root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
@@ -100,7 +107,6 @@ public class RegisterController implements Initializable {
             stage.setScene(scene);
             stage.show();
 
-            
         }
     }
 

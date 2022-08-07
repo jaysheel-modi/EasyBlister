@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="P1.HistoryController">
+   <padding>
+      <Insets top="50.0" />
+   </padding>
+   <top>
+      <VBox alignment="TOP_CENTER" prefHeight="98.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="EASY BLISTER">
+               <font>
+                  <Font name="Constantia Bold" size="50.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Label text="History of Medication">
+               <font>
+                  <Font name="CMU Classical Serif Italic" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+
+      <Label fx:id="homeButton" onMouseClicked="#goHomePage" text="Home Page" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </bottom>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="249.0" prefWidth="301.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="historyListview" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
