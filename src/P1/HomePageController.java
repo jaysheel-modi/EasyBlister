@@ -76,20 +76,20 @@ public class HomePageController extends Application implements Initializable {
 
     @FXML
     void goContactUs(MouseEvent event) throws IOException {
-        // root = FXMLLoader.load(getClass().getResource(".fxml"));
-        // stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
-        // scene = new Scene(root);
-        // stage.setScene(scene);
-        // stage.show();
+        root = FXMLLoader.load(getClass().getResource("ContactUs.fxml"));
+        stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void goFAQ(MouseEvent event) throws IOException {
-        // root = FXMLLoader.load(getClass().getResource(".fxml"));
-        // stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
-        // scene = new Scene(root);
-        // stage.setScene(scene);
-        // stage.show();
+        root = FXMLLoader.load(getClass().getResource("FAQs.fxml"));
+        stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

@@ -24,7 +24,7 @@ import javafx.scene.Node;
 
 public class SettingController {
 
-    private static final String ButtonBar = null;
+    // private static final String ButtonBar = null;
 
     @FXML
     private Label aboutUs;
@@ -58,21 +58,20 @@ public class SettingController {
 
     @FXML
     void goAboutUs(MouseEvent event) throws IOException {
-        // root = FXMLLoader.load(getClass().getResource(".fxml"));
-        // stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
-        // scene = new Scene(root);
-        // stage.setScene(scene);
-        // stage.show();
+        root = FXMLLoader.load(getClass().getResource("AboutUs.fxml"));
+        stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
-
 
     @FXML
     void goHelp(MouseEvent event) throws IOException {
-        // root = FXMLLoader.load(getClass().getResource(".fxml"));
-        // stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
-        // scene = new Scene(root);
-        // stage.setScene(scene);
-        // stage.show();
+        root = FXMLLoader.load(getClass().getResource("PriceCalculation.fxml"));
+        stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -98,7 +97,6 @@ public class SettingController {
         HomePageController homeController = loader.getController();
         homeController.setUserSession(userSession);
 
-
         root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
         stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         scene = new Scene(root);
@@ -123,11 +121,11 @@ public class SettingController {
 
     @FXML
     void goSecurity(MouseEvent event) throws IOException {
-        // root = FXMLLoader.load(getClass().getResource(".fxml"));
-        // stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
-        // scene = new Scene(root);
-        // stage.setScene(scene);
-        // stage.show();
+        root = FXMLLoader.load(getClass().getResource("PrivacyPolicy.fxml"));
+        stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

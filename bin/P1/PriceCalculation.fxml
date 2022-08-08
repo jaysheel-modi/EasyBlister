@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="P1.PriceCalculationCont">
+   <children>
+      <Label alignment="TOP_CENTER" depthTest="ENABLE" layoutX="173.0" layoutY="52.0" mouseTransparent="true" text="Easy Blister">
+         <font>
+            <Font name="Constantia Bold" size="50.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+      <Label layoutX="113.0" layoutY="126.0" prefHeight="38.0" prefWidth="394.0" text="Calculate the price of one pack of medicine" textAlignment="CENTER">
+         <font>
+            <Font name="Gabriola" size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="noOfTab" layoutX="332.0" layoutY="190.0" text="0" />
+      <Label alignment="CENTER" layoutX="107.0" layoutY="186.0" prefHeight="26.0" prefWidth="150.0" text="Number of tablets">
+         <font>
+            <Font name="Bell MT Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="107.0" layoutY="235.0" prefHeight="26.0" prefWidth="150.0" text="Price of one tablet">
+         <font>
+            <Font name="Bell MT Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="priceOfOne" editable="false" layoutX="332.0" layoutY="237.0" text="\$5.0" />
+      <Label fx:id="showTotal" alignment="CENTER" layoutX="209.0" layoutY="309.0" prefHeight="26.0" prefWidth="250.0" text="Price of the whole pack :">
+         <font>
+            <Font name="Bell MT Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="homePage" layoutX="350.0" layoutY="353.0" mnemonicParsing="false" onMouseClicked="#goToHomePage" text="Home Page" />
+      <Button fx:id="back" layoutX="189.0" layoutY="353.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="26.0" prefWidth="78.0" text="Back" />
+      <Button fx:id="calculate" layoutX="279.0" layoutY="276.0" mnemonicParsing="false" onAction="#calculatePrice" text="Calculate" />
+   </children>
+</AnchorPane>
