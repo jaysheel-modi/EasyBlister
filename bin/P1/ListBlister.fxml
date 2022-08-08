@@ -23,7 +23,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <ListView fx:id="nameListView" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="nameListView" prefHeight="200.0" prefWidth="200.0" onMouseClicked="#handleMouseClick" />
          </children>
       </VBox>
    </left>

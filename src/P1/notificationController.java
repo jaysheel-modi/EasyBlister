@@ -34,8 +34,20 @@ public class notificationController implements Initializable {
     private Scene scene;
     private Parent root;
 
+    private static String userSession;
+
+    public void setUserSession(String text) {
+        // System.out.println("This is user session: " + text);
+        userSession = text;
+        // System.out.println("This is user session: " + userSession);
+    }
+
     @FXML
     void homepageClicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent root = loader.load();
+        HomePageController homeController = loader.getController();
+        homeController.setUserSession(userSession);
 
         root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
         stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();

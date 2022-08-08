@@ -33,6 +33,14 @@ public class HistoryController implements Initializable {
     private Scene scene;
     private Parent root;
 
+    private static String userSession;
+
+    public void setUserSession(String text) {
+        // System.out.println("This is user session: " + text);
+        userSession = text;
+        // System.out.println("This is user session: " + userSession);
+    }
+
     @FXML
     void goHomePage(MouseEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
@@ -50,19 +58,23 @@ public class HistoryController implements Initializable {
         if (data.exists()) {
             try (Scanner scan = new Scanner(data)) {
                 if (scan.hasNextLine()) {
+
                     while (scan.hasNextLine()) {
                         String blisterData = scan.nextLine();
                         // history.add(blisterData);
                         String blisterField[] = blisterData.split(", ");
-                        if (blisterField[0].equals("Jaysheel")) {
-                            history.add(blisterData);
+                        if (blisterField[0].equals(userSession)) {
+                            String content = String.format(
+                                    "%5s |%5s |%5s |%5s |%5s |%5s",
+                                    blisterField[1], blisterField[2], blisterField[3], blisterField[4],
+                                    blisterField[5], blisterField[6]);
+                            history.add(content);
+                        } else {
+                            // history.add("Please add data first");
                         }
-                        // for (i = 0; i < blisterField.length; i++) {
-                        // history.add(blisterField[i]);
-                        // }
                     }
                 } else {
-                    history.add("Please add data first");
+
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

@@ -19,8 +19,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // open Splash Screen
-        // Parent root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("Notification.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
+        // Parent root = FXMLLoader.load(getClass().getResource("Notification.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setTitle("Easy Blister");
         primaryStage.setResizable(false);

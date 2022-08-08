@@ -103,7 +103,7 @@
                   <Insets top="0.5" />
                </padding>
             </TextField>
-            <Label layoutX="143.0" layoutY="258.0" onMouseClicked="#goHomePage" text="+ Add another blister">
+            <Label layoutX="143.0" layoutY="258.0" onMouseClicked="#goViewBlister" text="View Existing Blister">
                <font>
                   <Font name="Bell MT Bold" size="14.0" />
                </font>

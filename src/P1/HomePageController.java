@@ -15,8 +15,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.application.Application;
 
-public class HomePageController implements Initializable {
+public class HomePageController extends Application implements Initializable {
 
     @FXML
     private Button addButton;
@@ -49,8 +50,23 @@ public class HomePageController implements Initializable {
     private Scene scene;
     private Parent root;
 
+    private static String userSession;
+
+    public void setUserSession(String text) {
+        // System.out.println("This is user session: " + text);
+        userSession = text;
+        // System.out.println("This is user session: " + userSession);
+    }
+
     @FXML
     void addNewBlister(ActionEvent event) throws IOException {
+        // set user session
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddBlister.fxml"));
+        Parent root = loader.load();
+        AddBlisterCont addBlisterController = loader.getController();
+        // System.out.println(userSession);
+        addBlisterController.setUserSession(userSession);
+
         root = FXMLLoader.load(getClass().getResource("AddBlister.fxml"));
         stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         scene = new Scene(root);
@@ -59,17 +75,33 @@ public class HomePageController implements Initializable {
     }
 
     @FXML
-    void goContactUs(MouseEvent event) {
-
+    void goContactUs(MouseEvent event) throws IOException {
+        // root = FXMLLoader.load(getClass().getResource(".fxml"));
+        // stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+        // scene = new Scene(root);
+        // stage.setScene(scene);
+        // stage.show();
     }
 
     @FXML
-    void goFAQ(MouseEvent event) {
-
+    void goFAQ(MouseEvent event) throws IOException {
+        // root = FXMLLoader.load(getClass().getResource(".fxml"));
+        // stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+        // scene = new Scene(root);
+        // stage.setScene(scene);
+        // stage.show();
     }
 
     @FXML
     void goProfile(MouseEvent event) throws IOException {
+
+        // set user session
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
+        Parent root = loader.load();
+        profileController profileController = loader.getController();
+        // System.out.println(userSession);
+        profileController.setUserSession(userSession);
+
         root = FXMLLoader.load(getClass().getResource("profile.fxml"));
         stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         scene = new Scene(root);
@@ -79,17 +111,25 @@ public class HomePageController implements Initializable {
     }
 
     @FXML
-    void goSearchDoc(MouseEvent event) {
-
+    void goSearchDoc(MouseEvent event) throws IOException {
+        getHostServices().showDocument("https://doctors.cpso.on.ca/");
     }
 
     @FXML
-    void goSearchPharmacy(MouseEvent event) {
-
+    void goSearchPharmacy(MouseEvent event) throws IOException {
+        getHostServices()
+                .showDocument("https://cphm.ca/protecting-the-public/find-a-pharmacy-or-pharmacy-professional/");
     }
 
     @FXML
     void goSetting(MouseEvent event) throws IOException {
+        // set user session
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Setting.fxml"));
+        Parent root = loader.load();
+        SettingController settingController = loader.getController();
+        // System.out.println(userSession);
+        settingController.setUserSession(userSession);
+
         root = FXMLLoader.load(getClass().getResource("Setting.fxml"));
         stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         scene = new Scene(root);
@@ -100,6 +140,13 @@ public class HomePageController implements Initializable {
 
     @FXML
     void seeBlister(ActionEvent event) throws IOException {
+        // set user session
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ListBlister.fxml"));
+        Parent root = loader.load();
+        ListBlisterController listBlisterController = loader.getController();
+        // System.out.println(userSession);
+        listBlisterController.setUserSession(userSession);
+
         root = FXMLLoader.load(getClass().getResource("ListBlister.fxml"));
         stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         scene = new Scene(root);
@@ -121,6 +168,13 @@ public class HomePageController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         // TODO Auto-generated method stub
+        // System.out.println(userSession);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        // TODO Auto-generated method stub
+
     }
 
 }

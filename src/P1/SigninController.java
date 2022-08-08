@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -73,12 +74,21 @@ public class SigninController implements Initializable {
                             flag = true;
                             break;
                         } else {
+
                             flag = false;
-                            System.out.println("line 82: Password does not match");
+
+                            // System.out.println("line 82: Password does not match");
+                            // Alert alert = new Alert(Alert.AlertType.ERROR);
+                            // alert.setTitle("Alert");
+                            // alert.setHeaderText("Password does not match");
+                            // alert.showAndWait();
                         }
                     } else {
                         if (!scan.hasNextLine()) {
-                            System.out.println("line 84: User does not exist please Register first");
+                            // Alert alert = new Alert(Alert.AlertType.ERROR);
+                            // alert.setTitle("Alert");
+                            // alert.setHeaderText("User does not exist please Register first");
+                            // alert.showAndWait();
                             flag = false;
                         }
                     }
@@ -87,17 +97,39 @@ public class SigninController implements Initializable {
                 System.out.println("NO data");
             }
             if (flag) {
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+                Parent root = loader.load();
+                HomePageController homeController = loader.getController();
+                homeController.setUserSession(emailAddress.getText());
+
                 root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
                 stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
             } else {
-                // System.out.println("Email Id and password does not match");
+
+                // Alert alert = new Alert(Alert.AlertType.ERROR);
+                // alert.setTitle("Alert");
+                // alert.setHeaderText("Incorrect Password! Please try again");
+                // alert.showAndWait();
+                // Password.requestFocus();
+
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert");
+                alert.setHeaderText("User does not exist please Register first");
+                alert.showAndWait();
+                emailAddress.requestFocus();
+
             }
             scan.close();
         } else {
             System.out.println("line 101: User does not exist please Register first");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alert");
+            alert.setHeaderText("User does not exist please Register first");
+            alert.showAndWait();
         }
     }
 

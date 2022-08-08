@@ -42,8 +42,51 @@ public class profileController implements Initializable {
     private Scene scene;
     private Parent root;
 
+    private static String userSession;
+
+    public void setUserSession(String text) {
+
+        // System.out.println("This is user session: " + text);
+        userSession = text;
+        // setTextOfProfile();
+        // System.out.println("This is user session: " + userSession);
+    }
+
+    public void setTextOfProfile() {
+        File data = new File("register.dat");
+
+        if (data.exists()) {
+            try (Scanner scan = new Scanner(data)) {
+                if (scan.hasNextLine()) {
+                    while (scan.hasNextLine()) {
+                        String userData = scan.nextLine();
+                        String userField[] = userData.split(", ");
+                        System.out.println(userSession);
+                        if (userField[0].equals(userSession)) {
+                            email.setText(userField[0]);
+                            lname.setText(userField[1]);
+                            fname.setText(userField[2]);
+                            phonenumber.setText(userField[3]);
+                        }
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("File not found");
+        }
+
+    }
+
     @FXML
     void gobackClicked(ActionEvent event) throws IOException {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        Parent root = loader.load();
+        HomePageController homeController = loader.getController();
+        homeController.setUserSession(userSession);
 
         root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
         stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
@@ -56,30 +99,9 @@ public class profileController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // TODO Auto-generated method stub
-        File data = new File("register.dat");
 
-        if (data.exists()) {
-            try (Scanner scan = new Scanner(data)) {
-                if (scan.hasNextLine()) {
-                    while (scan.hasNextLine()) {
-                        String userData = scan.nextLine();
-                        String userField[] = userData.split(", ");
 
-                        phonenumber.setText(userField[3]);
-                        email.setText(userField[0]);
-                        fname.setText(userField[2]);
-                        lname.setText(userField[1]);
-
-                    }
-                }
-            } catch (FileNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("FIle not found");
-        }
-
+        setTextOfProfile();
     }
 
 }

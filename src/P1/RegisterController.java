@@ -101,6 +101,11 @@ public class RegisterController implements Initializable {
                     + phoneNo.getText() + ", " + password.getText() + ", " + confirm.getText());
             fileOut.close();
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+            Parent root = loader.load();
+            HomePageController homeController = loader.getController();
+            homeController.setUserSession(emailId.getText());
+
             root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
             stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
             scene = new Scene(root);
